@@ -35,3 +35,9 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+.vs
+*.orig
+/Gighub/Gighub/Gighub/bin
+/Gighub/Gighub/Gighub/obj
+/Gighub/Gighub/Gighub/obj/
