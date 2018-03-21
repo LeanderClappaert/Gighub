@@ -203,6 +203,14 @@
     <Compile Include="Migrations\201803211824068_CreateGigTable.Designer.cs">
       <DependentUpon>201803211824068_CreateGigTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803211916575_OverrideConventionsForGigsAndGenres.cs" />
+    <Compile Include="Migrations\201803211916575_OverrideConventionsForGigsAndGenres.Designer.cs">
+      <DependentUpon>201803211916575_OverrideConventionsForGigsAndGenres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803211924096_PopulateGenresTable.cs" />
+    <Compile Include="Migrations\201803211924096_PopulateGenresTable.Designer.cs">
+      <DependentUpon>201803211924096_PopulateGenresTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -293,6 +301,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803211824068_CreateGigTable.resx">
       <DependentUpon>201803211824068_CreateGigTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803211916575_OverrideConventionsForGigsAndGenres.resx">
+      <DependentUpon>201803211916575_OverrideConventionsForGigsAndGenres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803211924096_PopulateGenresTable.resx">
+      <DependentUpon>201803211924096_PopulateGenresTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
