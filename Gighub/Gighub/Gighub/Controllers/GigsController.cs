@@ -34,7 +34,7 @@ namespace Gighub.Controllers
             /*
                 This used to be 2 calls to the DB to get the artist and genre for the currently logged in user. 
                 But by changing the Domain Model (adding FK's GenreId and ArtistId) these calls are unnecessary.
-                --> When loading the view, everything is loaded using 1 call to the DB.
+                --> When loading the view, everything is loaded using foreign keys.
 
                 var artistId = User.Identity.GetUserId();
                 var artist = _context.Users.Single(u => u.Id == artistId);
@@ -49,8 +49,16 @@ namespace Gighub.Controllers
                  */
 
                 ArtistId = User.Identity.GetUserId(),
-                DateTime = DateTime.Parse($"{viewModel.Date} {viewModel.Time}"),
                 GenreId = viewModel.Genre,
+
+                /*
+                    Parsing is too detailed for a Controller.
+                    A Controller is like a manager, coördination only.
+
+                    DateTime = DateTime.Parse($"{viewModel.Date} {viewModel.Time}"),
+                */
+
+                DateTime = viewModel.DateTime,
                 Venue = viewModel.Venue
             };
 
