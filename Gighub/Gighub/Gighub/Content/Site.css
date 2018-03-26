@@ -23,6 +23,12 @@ textarea {
     max-width: 280px;
 }
 
+/* .NET overrides */
+
+.field-validation-error {
+    color: red;
+}
+
 /* 
     Bootstrap Overrides, can be in a separate file later on 
     Work from general to more specific
@@ -99,4 +105,3 @@ h6,
     -ms-border-radius: 9px;
     border-radius: 9px;
 }
-
