@@ -8,6 +8,8 @@ namespace Gighub.Models
         public DbSet<Gig> Gigs { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Attendance> Attendances { get; set; }
+
+        public DbSet<Following> Followings { get; set; }
         
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -24,6 +26,24 @@ namespace Gighub.Models
             modelBuilder.Entity<Attendance>()
                 .HasRequired(a => a.Gig) //each attendant has a required Gig.
                 .WithMany()
+                .WillCascadeOnDelete(false);
+
+            /*
+             * An application user has many followers.
+             * Each follower has a required followee.
+             */
+            modelBuilder.Entity<ApplicationUser>()
+                .HasMany(f => f.Followers) 
+                .WithRequired(f => f.Followee)
+                .WillCascadeOnDelete(false);
+
+            /*
+             * An application user has many followees.
+             * Each followee has a required follower.
+             */
+            modelBuilder.Entity<ApplicationUser>()
+                .HasMany(f => f.Followees)
+                .WithRequired(f => f.Follower)
                 .WillCascadeOnDelete(false);
 
             base.OnModelCreating(modelBuilder);
