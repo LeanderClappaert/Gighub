@@ -41,15 +41,19 @@ namespace Gighub.Controllers
                 var genre = _context.Genres.Single(g => g.Id == viewModel.Genre);
             */
 
+            if (!ModelState.IsValid)
+            {
+                viewModel.Genres = _context.Genres.ToList();
+                return View("Create", viewModel);
+            }
+
+
             var gig = new Gig
             {
                 /*
                     Artist = artist,
                     Genre = genre,
                  */
-
-                ArtistId = User.Identity.GetUserId(),
-                GenreId = viewModel.Genre,
 
                 /*
                     Parsing is too detailed for a Controller.
@@ -58,7 +62,9 @@ namespace Gighub.Controllers
                     DateTime = DateTime.Parse($"{viewModel.Date} {viewModel.Time}"),
                 */
 
-                DateTime = viewModel.DateTime,
+                ArtistId = User.Identity.GetUserId(),
+                GenreId = viewModel.Genre,
+                DateTime = viewModel.GetDateTime(),
                 Venue = viewModel.Venue
             };
 
