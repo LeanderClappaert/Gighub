@@ -12,6 +12,7 @@
     <li class="dropdown">
         <a class="dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@User.Identity.GetUserName()</a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a href="@Url.Action("Mine", "Gigs")">My Upcoming Gigs</a></li>
             <li><a href="@Url.Action("Attending", "Gigs")">Gigs I'm going</a></li>
             <li><a href="@Url.Action("GetArtist", "Artist")">Artists I'm following</a></li>
             <li role="separator" class="divider"></li>
