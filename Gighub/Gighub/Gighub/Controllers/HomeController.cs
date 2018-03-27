@@ -3,6 +3,7 @@ using System.Linq;
 using System.Data.Entity;
 using System.Web.Mvc;
 using Gighub.Models;
+using Gighub.ViewModels;
 
 namespace Gighub.Controllers
 {
@@ -22,7 +23,14 @@ namespace Gighub.Controllers
                 .Include(g => g.Genre)
                 .Where(g => g.DateTime > DateTime.Now); //using System.Data.Entity makes sure that Lambda expression is possible here. Artist is updated by Entity framework if this is changed.
 
-            return View(upcomingGigs);
+            var viewModel = new GigsViewModel
+            {
+                UpComingGigs = upcomingGigs,
+                ShowActions = User.Identity.IsAuthenticated,
+                Heading = "Upcoming Gigs"
+            };
+
+            return View("Gigs", viewModel);
         }
 
         public ActionResult About()

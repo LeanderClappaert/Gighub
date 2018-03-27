@@ -1,0 +1,15 @@
+﻿@model Gighub.ViewModels.ArtistsViewModel
+
+@{
+    ViewBag.Title = "Artists";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@Model.Heading</h1>
+
+<ul class="gigs voffset4">
+    @foreach (var artist in Model.Artists)
+    {
+        <li>@artist.Followee.Name</li>
+    }
+</ul>

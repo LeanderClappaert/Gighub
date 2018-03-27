@@ -6,7 +6,7 @@ using Microsoft.AspNet.Identity;
 
 namespace Gighub.Controllers
 {
-    [System.Web.Http.Authorize]
+    [Authorize]
     public class FollowingsController : ApiController
     {
         private readonly ApplicationDbContext _context;
