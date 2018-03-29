@@ -21,7 +21,7 @@ namespace Gighub.Controllers
             var upcomingGigs = _context.Gigs
                 .Include(g => g.Artist)
                 .Include(g => g.Genre)
-                .Where(g => g.DateTime > DateTime.Now); //using System.Data.Entity makes sure that Lambda expression is possible here. Artist is updated by Entity framework if this is changed.
+                .Where(g => g.DateTime > DateTime.Now && !g.IsCanceled); //using System.Data.Entity makes sure that Lambda expression is possible here. Artist is updated by Entity framework if this is changed.
 
             var viewModel = new GigsViewModel
             {

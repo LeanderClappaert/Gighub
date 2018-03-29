@@ -6,6 +6,8 @@ namespace Gighub.Models
     public class Gig
     {
         public int Id { get; set; }
+
+        public bool IsCanceled { get; set; } // 'logical delete'
       
         public ApplicationUser Artist { get; set; }
 
